@@ -9,18 +9,21 @@ import SwiftUI
 
 struct AFButton: View {
     let title: String
+    let imageName: String
+    let action: () -> Void
 
     var body: some View {
-        Text(title)
-            .font(.title2)
-            .fontWeight(.semibold)
-            .frame(width: 280, height: 50)
-            .background(.red)
-            .foregroundColor(.white)
-            .cornerRadius(10)
+        Button {
+            action()
+        } label: {
+            Label(title, systemImage: imageName)
+        }
+        .buttonStyle(.borderedProminent)
+        .controlSize(.extraLarge)
+        .tint(.red)
     }
 }
 
 #Preview {
-    AFButton(title: "Learn More")
+    AFButton(title: "Learn More", imageName: "book.fill") { return }
 }

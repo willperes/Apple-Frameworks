@@ -26,10 +26,8 @@ struct FrameworkDetailView: View {
             
             Spacer()
             
-            Button {
+            AFButton(title: "Learn More", imageName: "book.fill") {
                 isShowingSafariView = true
-            } label: {
-                AFButton(title: "Learn More")
             }
         }
         .fullScreenCover(isPresented: $isShowingSafariView, content: {
